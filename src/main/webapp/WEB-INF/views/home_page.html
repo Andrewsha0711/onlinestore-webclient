@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Online store</title>
+<link rel="stylesheet" th:href="@{/resources/css/main.css}"
+	href="/onlinestore/src/main/webapp/resources/css/main.css">
+<link rel="stylesheet" th:href="@{/resources/css/home_page.css}"
+	href="/onlinestore/src/main/webapp/resources/css/home_page.css">
+<link rel="stylesheet" th:href="@{/resources/css/header/header.css}"
+	href="/onlinestore/src/main/webapp/resources/css/header/header.css">
+<link rel="stylesheet" th:href="@{/resources/css/header/autorization_popup.css}"
+	href="/onlinestore/src/main/webapp/resources/css/header/autorization_popup.css">
+<link rel="stylesheet" th:href="@{/resources/css/header/profile_popup.css}"
+	href="/onlinestore/src/main/webapp/resources/css/header/profile_popup.css">
+</head>
+
+<body>
+	<nav th:insert="~{header/header :: header}" id="nav">
+		<script type="text/javascript" src="/onlinestore/src/main/webapp/resources/js/header.js"></script>
+		<script type="text/javascript">
+			createHeader();
+		</script>
+	</nav>
+</body>
+</html>

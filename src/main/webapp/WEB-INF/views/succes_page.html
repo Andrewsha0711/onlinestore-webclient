@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<div class="center">
+		<h1>Успешно</h1>
+		<form th:method="POST" th:action="@{/registration}"
+			th:object="${user}">
+			<div class="txt_field">
+				<input name="email" type="text" required> <label>Почта</label>
+			</div>
+			<div class="txt_field">
+				<input name="username" type="text" required> 
+				<label>Имя пользователя</label>
+			</div>
+			<div class="txt_field">
+				<input name="password" type="password" required> <label>Пароль</label>
+			</div>
+			<div class="txt_field">
+				<input type="password" required> <label>Подтвердите
+					пароль</label>
+			</div>
+			<input type="submit" value="Зарегистрироваться">
+		</form>
+	</div>
+</body>
+</html>

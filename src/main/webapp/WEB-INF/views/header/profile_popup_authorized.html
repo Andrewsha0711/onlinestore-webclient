@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" th:href="@{/resources/css/main.css}"
+	href="/onlinestore/src/main/webapp/resources/css/main.css">
+<link rel="stylesheet" th:href="@{/resources/css/header.css}"
+	href="/onlinestore/src/main/webapp/resources/css/header.css">
+<link rel="stylesheet"
+	th:href="@{/resources/css/header/profile_popup.css}"
+	href="/onlinestore/src/main/webapp/resources/css/header/profile_popup.css">
+
+<body>
+	<div th:fragment="profile-pop-up-authorized"
+		class="profile-pop-up-menu">
+		<div class="profile"
+			onclick="profileIconClick_Authorized();">
+			<img th:src="@{/resources/img/account_circle.png}"
+				th:unless="${user.imageURL}"
+				src="/onlinestore/src/main/webapp/resources/img/account_circle.png">
+			<img th:src=${user.imageURL} th:if="${user.imageURL}">
+		</div>
+		<div class="menu">
+			<div class="pop-up-profile-img">
+				<img th:src="@{/resources/img/account_circle.png}"
+					th:unless="${user.imageURL}"
+					src="/onlinestore/src/main/webapp/resources/img/account_circle.png">
+				<!-- <img th:src=${user.imageURL} th:if="${user.imageURL}"> -->
+			</div>
+			<h3>Username</h3>
+			<p>user email or phone number</p>
+			<button type="button" name="account management">account management</button>
+			<ul>
+				<li class="nav-item"><img th:src="@{/resources/img/9.png}"
+					src="/onlinestore/src/main/webapp/resources/img/account_circle.png"><a
+					href="#">Cart</a></li>
+				<li class="nav-item"><img th:src="@{/resources/img/9.png}"
+					src="/onlinestore/src/main/webapp/resources/img/account_circle.png"><a
+					href="#">Orders</a></li>
+				<li class="nav-item"><img th:src="@{/resources/img/9.png}"
+					src="/onlinestore/src/main/webapp/resources/img/account_circle.png"><a
+					href="#">Favorites</a></li>
+				<!-- <li class="nav-item"><img th:src="@{/resources/img/9.png}"
+					src="/onlinestore/src/main/webapp/resources/img/account_circle.png"><a
+					href="#">Адреса</a></li>
+				<li class="nav-item"><img th:src="@{/resources/img/9.png}"
+					src="/onlinestore/src/main/webapp/resources/img/account_circle.png"><a
+					href="#">MyProfile</a></li>
+				<li class="nav-item"><img th:src="@{/resources/img/9.png}"
+					src="/onlinestore/src/main/webapp/resources/img/account_circle.png"><a
+					href="#">MyProfile</a></li> -->
+			</ul>
+			<button type="button" class="logout-button">log out</button>
+		</div>
+		<script th:src="@{/resources/js/header.js}"
+			src="/onlinestore/src/main/webapp/resources/js/header.js">
+		</script>
+	</div>
+</body>
+</html>

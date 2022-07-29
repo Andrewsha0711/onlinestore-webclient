@@ -1,0 +1,22 @@
+:root {
+  /*   color variables */
+  --clr-primary: #6aeeb5;
+  --clr-primary-dark: #70757D;
+  --clr-gray100: #E2EBFC;
+  --clr-gray200: #CCD4E3;
+  --clr-hoverclr: #ff5d94;
+
+  /*   border radius */
+  --radius: 1rem;
+}
+
+*{
+  font-family: 'roboto', sans-serif;
+  box-sizing: border-box;
+}
+
+body {
+  margin-top: 0px;
+  background: var(--clr-gray100);
+  overflow-x: hidden;
+}

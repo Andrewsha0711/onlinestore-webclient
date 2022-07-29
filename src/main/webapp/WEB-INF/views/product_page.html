@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Online store</title>
+<link rel="stylesheet" th:href="@{/resources/css/main.css}"
+	href="/onlinestore/src/main/webapp/resources/css/main.css">
+<link rel="stylesheet" th:href="@{/resources/css/product_page.css}"
+	href="/onlinestore/src/main/webapp/resources/css/product_page.css">
+<link rel="stylesheet" th:href="@{/resources/css/header/header.css}"
+	href="/onlinestore/src/main/webapp/resources/css/header/header.css">
+<link rel="stylesheet" th:href="@{/resources/css/header/autorization_popup.css}"
+	href="/onlinestore/src/main/webapp/resources/css/header/autorization_popup.css">
+<link rel="stylesheet" th:href="@{/resources/css/header/profile_popup.css}"
+	href="/onlinestore/src/main/webapp/resources/css/header/profile_popup.css">
+</head>
+<body>
+	<nav th:insert="~{header/header :: header}"></nav>
+  	<div class="product-card">
+		<div class="product">
+			<h2 class="product-brand" th:text=${product.name}>Brand</h2>
+			<p class="product-short-description" th:text=${product.shortDescription}>a short line about the product</p>
+		</div>
+		<div class="product-info-container">
+			<div class="product-images">
+				<div class="images-container">
+						<img class="product-thumb" th:each="image : ${product.imagesURL}" th:src= ${image} alt="">
+				</div>
+				<div class="product-main-image">
+					<img th:src=${product.imagesURL[0]}
+        				th:unless="${#lists.isEmpty(product.imagesURL)}"
+        				class="product-thumb"
+        				alt="">
+				</div>
+			</div>
+			<div class="product-info">
+				<p>Characteristics</p>
+				<div class="product-details">
+					<div class="product-option">
+						<p>option</p>
+						<div class="variable">
+							<p>variable</p>
+						</div>
+					</div>
+					<div class="product-option">
+						<p>option</p>
+						<div class="variable">
+							<p>variable</p>
+						</div>
+					</div>
+					<div class="product-option">
+						<p>option</p>
+						<div class="variable">
+							<p>variable</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="product-price-delivery">
+				<div class="price-info">
+					<div class="price">$20</div>
+					<div class="actual-price">$20</div>
+					<div class="discount">5%</div>
+				</div>
+				<button class="card-btn" type="button" name="button">add to cart</button>
+			</div>
+			<div class="product-description">
+				<h2>description</h2>
+				<p th:text=${product.description}></p>
+			</div>
+		</div>
+  </div>
+</body>
+</html>

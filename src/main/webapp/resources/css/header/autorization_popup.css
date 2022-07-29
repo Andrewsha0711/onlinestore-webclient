@@ -1,0 +1,107 @@
+.autorization-pop-up{
+  /* filter: blur(2px); */
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  visibility: hidden;
+  z-index: 100;
+  filter: none;
+}
+.autorization-pop-up.active{
+  opacity: 1;
+  visibility: visible;
+}
+.content-body{
+  min-height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.content{
+  background: white;
+  padding: 20px;
+  /* box-shadow: 0px 0px 0px var(--clr-gray200); */
+  border-radius: var(--radius);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+.close-button{
+  /* position: fixed; */
+  width: 20px;
+  height: 20px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  padding: 0px;
+}
+.close-button img{
+  width: 100%;
+  height: 100%;
+}
+.content .switch-buttons{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  margin-bottom: 5px;
+  flex-wrap: nowrap;
+}
+.switch-buttons .option{
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-transform: capitalize;
+  font-size: 16px;
+}
+.registration-form{
+  position: fixed;
+  padding: 10px;
+  opacity: 0;
+  visibility: hidden;
+}
+.registration-form.active{
+  position: relative;
+  opacity: 1;
+  visibility: visible;
+}
+.login-form{
+  position: relative;
+  padding: 10px;
+  opacity: 1;
+  visibility: visible;
+}
+.login-form.hidden{
+  position: fixed;
+  opacity: 0;
+  visibility: hidden;
+}
+.txt_field{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-bottom: 10px;
+}
+.txt_field label{
+  text-transform: capitalize;
+  color: var(--clr-primary-dark);
+  font-size: 14px;
+}
+.submit-button{
+  width: 100%;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  height: 30px;
+  border: none;
+  cursor: pointer;
+  border-radius: var(--radius);
+  background-color: var(--clr-gray200);
+  font-size: 14px;
+  font-weight: normal;
+  color:black;
+}

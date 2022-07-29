@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" th:href="@{/resources/css/main.css}"
+	href="/onlinestore/src/main/webapp/resources/css/main.css">
+<link rel="stylesheet" th:href="@{/resources/css/header.css}"
+	href="/onlinestore/src/main/webapp/resources/css/header.css">
+<link rel="stylesheet"
+	th:href="@{/resources/css/header/autorization_popup.css}"
+	href="/onlinestore/src/main/webapp/resources/css/header/autorization_popup.css">
+</head>
+
+<body>
+	<div th:fragment="profile-pop-up-not-authorized"
+		class="profile-pop-up-menu">
+		<div class="profile"
+			onclick="profileIconClick_notAuthorized();">
+			<img th:src="@{/resources/img/account_circle.png}"
+				src="/onlinestore/src/main/webapp/resources/img/account_circle.png">
+		</div>
+		<div class="autorization-pop-up">
+			<div class="content-body">
+				<div class="content">
+					<button class="close-button" name="close-button"
+						onclick="closeForm();">
+						<img th:src="@{/resources/img/close_icon.png}"
+							src="/onlinestore/src/main/webapp/resources/img/close_icon.png">
+					</button>
+					<div class="switch-buttons">
+						<button type="button" class="option" name="registration_option"
+							onclick="switchToRegistrationForm();">Sign up</button>
+						<button type="button" class="option" name="autorization_option"
+							onclick="switchToLoginForm();">Sign in</button>
+					</div>
+					<div class="registration-form">
+						<form th:method="POST" th:action="@{/registration}">
+							<div class="txt_field">
+								<label for="email">Email</label> <input name="email" type="text"
+									id="email" class="input" />
+							</div>
+							<div class="txt_field">
+								<label for="username" th:text="#{label.username}">Username</label>
+								<input name="username" type="text" id="username" class="input" />
+							</div>
+							<div class="txt_field">
+								<label for="password" th:text="#{label.password}">Password</label>
+								<input name="password" type="password" id="password"
+									class="input js-input-password" />
+							</div>
+							<div class="txt_field">
+								<label>Подтвердите пароль</label> <input name="secondPassword"
+									type="password" class="input" />
+							</div>
+							<input type="submit" class="submit-button"
+								value="Зарегистрироваться" />
+						</form>
+					</div>
+					<div class="login-form">
+						<form th:method="POST" th:action="@{/autorization}">
+							<div class="txt_field">
+								<label for="email">Email</label> <input name="email" type="text"
+									id="email" class="input" />
+							</div>
+							<div class="txt_field">
+								<label for="password" th:text="#{label.password}">Password</label>
+								<input name="password" type="password" id="password"
+									class="input" />
+							</div>
+							<input type="submit" class="submit-button" value="Войти" />
+						</form>
+					</div>
+				</div>
+			</div>
+			<script th:src="@{/resources/js/header.js}"
+				src="/onlinestore/src/main/webapp/resources/js/header.js">
+			</script>
+		</div>
+	</div>
+</body>
+</html>

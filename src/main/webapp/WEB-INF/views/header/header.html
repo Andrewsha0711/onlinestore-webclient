@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" th:href="@{/resources/css/main.css}"
+	href="/onlinestore/src/main/webapp/resources/css/main.css">
+<link rel="stylesheet" th:href="@{/resources/css/header/header.css}"
+	href="/onlinestore/src/main/webapp/resources/css/header/header.css">
+<link rel="stylesheet"
+	th:href="@{/resources/css/header/autorization_popup.css}"
+	href="/onlinestore/src/main/webapp/resources/css/header/autorization_popup.css">
+<link rel="stylesheet"
+	th:href="@{/resources/css/header/profile_popup.css}"
+	href="/onlinestore/src/main/webapp/resources/css/header/profile_popup.css">
+</head>
+
+<body>
+	<nav class="nav-bar" th:fragment="header" data-id="header">
+		<div class="nav" id="nav">
+			<div class="pop-up-categories-menu">
+				<div class="categories" onclick="categoriesMenuToggle();">
+					<img th:src="@{/resources/img/menu.png}"
+						src="/onlinestore/src/main/webapp/resources/img/menu.png">
+				</div>
+				<div class="menu">
+					<h3>Categories</h3>
+					<ul>
+						<li class="nav-item"><img src=""><a
+							th:href="@{/catalog}">Category</a></li>
+					</ul>
+				</div>
+			</div>
+			<img th:src="@{/resources/img/9.png}"
+				src="/onlinestore/src/main/webapp/resources/img/9.png" class="logo">
+			<a href="#"></a>
+			<div class="search">
+				<input type="text" class="search-box"
+					placeholder="search brand, product">
+				<button class="search-button">
+					<img th:src="@{/resources/img/search-icon.png}"
+						src="/onlinestore/src/main/webapp/resources/img/search-icon.png">
+				</button>
+			</div>
+			<div class="nav-items">
+				<!-- <div class="pages"> -->
+				<a href="#">Page1</a> <a href="#">Page2</a> <a href="#">Page3</a>
+				<!-- </div> -->
+			</div>
+			<div th:unless="${user}"
+				th:insert="~{header/profile_popup_not_authorized :: profile-pop-up-not-authorized}">
+			</div>
+			<div th:if="${user}"
+				th:insert="~{header/profile_popup_authorized :: profile-pop-up-authorized}">
+			</div>
+		</div>
+		<script th:src="@{/resources/js/header.js}"
+			src="/onlinestore/src/main/webapp/resources/js/header.js">
+			
+		</script>
+	</nav>
+</body>
+</html>

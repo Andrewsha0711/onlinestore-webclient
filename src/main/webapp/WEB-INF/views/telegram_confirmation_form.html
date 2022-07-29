@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1 th:text="${username}">Подтвердите учетную запись через телеграм</h1>
+	<form th:method="POST" th:action="@{/telegram_confirmation}">
+		<div class="txt_field">
+			<input type="text" th:name="telegram" id="telegram" /> <label for="telegram">Имя пользователя телеграм</label>
+		</div>
+		<input type="submit" value="Подтвердить" /> <img
+			src="resources/img/telegram-bot-link.jpg">
+	</form>
+</body>
+</html>
