@@ -1,4 +1,4 @@
-package classes;
+package additional;
 
 import org.telegram.telegrambots.bots.DefaultBotOptions;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;

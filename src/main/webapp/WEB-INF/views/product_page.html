@@ -9,66 +9,64 @@
 	href="/onlinestore/src/main/webapp/resources/css/product_page.css">
 <link rel="stylesheet" th:href="@{/resources/css/header/header.css}"
 	href="/onlinestore/src/main/webapp/resources/css/header/header.css">
-<link rel="stylesheet" th:href="@{/resources/css/header/autorization_popup.css}"
+<link rel="stylesheet"
+	th:href="@{/resources/css/header/autorization_popup.css}"
 	href="/onlinestore/src/main/webapp/resources/css/header/autorization_popup.css">
-<link rel="stylesheet" th:href="@{/resources/css/header/profile_popup.css}"
+<link rel="stylesheet"
+	th:href="@{/resources/css/header/profile_popup.css}"
 	href="/onlinestore/src/main/webapp/resources/css/header/profile_popup.css">
 </head>
 <body>
 	<nav th:insert="~{header/header :: header}"></nav>
-  	<div class="product-card">
+	<div class="product-card">
 		<div class="product">
-			<h2 class="product-brand" th:text=${product.name}>Brand</h2>
-			<p class="product-short-description" th:text=${product.shortDescription}>a short line about the product</p>
+			<h2 class="product-brand" th:text=${productCard.name}>Brand</h2>
+			<p class="product-short-description"
+				th:text=${productCard.shortDescription}>a short line about the
+				product</p>
 		</div>
 		<div class="product-info-container">
-			<div class="product-images">
+			<div class="product-images" th:if=${productCard.mainProduct}>
 				<div class="images-container">
-						<img class="product-thumb" th:each="image : ${product.imagesURL}" th:src= ${image} alt="">
+					<img class="product-thumb"
+						th:each="image : ${productCard.mainProduct.images}"
+						th:src=${image.url} alt="">
 				</div>
 				<div class="product-main-image">
-					<img th:src=${product.imagesURL[0]}
-        				th:unless="${#lists.isEmpty(product.imagesURL)}"
-        				class="product-thumb"
-        				alt="">
+					<img th:src=${productCard.mainProduct.images[0].url}
+						th:unless="${#lists.isEmpty(productCard.mainProduct.images)}"
+						class="product-thumb" alt="">
 				</div>
 			</div>
-			<div class="product-info">
+			<div class="product-info" th:if=${productCard.mainProduct}>
 				<p>Characteristics</p>
-				<div class="product-details">
-					<div class="product-option">
-						<p>option</p>
+				<div class="product-details" th:if="not ${productCard.mainProduct.attributes.isEmpty()}">
+					<div th:each="attribute : ${productCard.mainProduct.attributes}"
+						class="product-option">
+						<p th:text=${attribute.key}>option</p>
 						<div class="variable">
-							<p>variable</p>
-						</div>
-					</div>
-					<div class="product-option">
-						<p>option</p>
-						<div class="variable">
-							<p>variable</p>
-						</div>
-					</div>
-					<div class="product-option">
-						<p>option</p>
-						<div class="variable">
-							<p>variable</p>
+							<p th:text=${attribute.value}>variable</p>
 						</div>
 					</div>
 				</div>
 			</div>
-			<div class="product-price-delivery">
+			<div class="product-price-delivery" th:if=${productCard.mainProduct}>
 				<div class="price-info">
-					<div class="price">$20</div>
-					<div class="actual-price">$20</div>
-					<div class="discount">5%</div>
+					<div class="price" th:if=${productCard.mainProduct.discount}
+						th:text=${productCard.mainProduct.discountedPrice}>$20</div>
+					<div class="actual-price"
+						th:text=${productCard.mainProduct.actualPrice}>$20</div>
+					<div class="discount" th:if=${productCard.mainProduct.discount}
+						th:text=${productCard.mainProduct.discount}>5%</div>
 				</div>
-				<button class="card-btn" type="button" name="button">add to cart</button>
+				<button class="card-btn" type="button" name="button">add to
+					cart</button>
 			</div>
 			<div class="product-description">
 				<h2>description</h2>
-				<p th:text=${product.description}></p>
+				<p th:text=${productCard.description}></p>
 			</div>
 		</div>
-  </div>
+	</div>
 </body>
 </html>

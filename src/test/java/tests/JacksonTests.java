@@ -8,7 +8,7 @@ import org.junit.Test;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import models.Product;
+import model.Product;
 
 public class JacksonTests {
 
@@ -16,7 +16,6 @@ public class JacksonTests {
 	public void whenSerializeAndDeserializeUsingJackson_thenCorrect() 
 	  throws IOException{
 	    Product product = new Product();
-	    product.setId("test-id-123-456-789");
 	    product.setName("Test name");
 	    product.setActualPrice(123456.5);
 //	    product.setDescription("Test description: product");

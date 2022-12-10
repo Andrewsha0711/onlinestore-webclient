@@ -1,4 +1,4 @@
-package classes;
+package additional;
 
 public class TelegramBotMembership {
 	private String telegramChatId;

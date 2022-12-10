@@ -1,62 +1,43 @@
-package models;
+package model;
+
+import java.io.Serializable;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
+import java.util.UUID;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Product {
-	private String id;
+public class Product implements Serializable{
+	private static final long serialVersionUID = -539848047219617153L;
+	private UUID id;
 	private String name;
-	private String shortDescription;
 	private Double actualPrice;
 	private Double discount;
+	private Set<ProductImage> images = new HashSet<>();
+	private Map<String, String> attributes = new HashMap<>();
 	private Double price;
 	
-//	private String category;
-	private String description;
-
-	private String storeId;
-	private String[] imagesURL;
 	
-	public Double getPrice() {
-		if(this.discount != null && this.discount >= 0) {
-			return this.actualPrice - this.actualPrice * (this.discount/100);
-		}
-		else {
-			return this.actualPrice;
-		}
-	}
-	public void setPrice(Double price) {
-		this.discount = (this.actualPrice - price) / this.actualPrice * 100;
-	}
-	public String getId() {
+	public UUID getId() {
 		return id;
 	}
-	public void setId(String id) {
+	public void setId(UUID id) {
 		this.id = id;
 	}
-//	public String getCategory() {
-//		return category;
-//	}
-//	public void setCategory(String category) {
-//		this.category = category;
-//	}
 	public String getName() {
 		return name;
 	}
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getShortDescription() {
-		return shortDescription;
-	}
-	public void setShortDescription(String shortDescription) {
-		this.shortDescription = shortDescription;
-	}
 	public Double getActualPrice() {
 		return actualPrice;
 	}
-	public void setActualPrice(Double price) {
-		this.actualPrice = price;
+	public void setActualPrice(Double actualPrice) {
+		this.actualPrice = actualPrice;
 	}
 	public Double getDiscount() {
 		return discount;
@@ -64,22 +45,22 @@ public class Product {
 	public void setDiscount(Double discount) {
 		this.discount = discount;
 	}
-	public String getStoreId() {
-		return storeId;
+	public Set<ProductImage> getImages() {
+		return images;
 	}
-	public void setStoreId(String storeId) {
-		this.storeId = storeId;
+	public void setImages(Set<ProductImage> images) {
+		this.images = images;
 	}
-	public Object[] getImagesURL() {
-		return imagesURL;
+	public Map<String, String> getAttributes() {
+		return attributes;
 	}
-	public void setImagesURL(String[] imagesURL) {
-		this.imagesURL = imagesURL;
+	public void setAttributes(Map<String, String> attributes) {
+		this.attributes = attributes;
 	}
-	public String getDescription() {
-		return description;
+	public Double getPrice() {
+		return price;
 	}
-	public void setDescription(String description) {
-		this.description = description;
+	public void setPrice(Double price) {
+		this.price = price;
 	}
 }

@@ -16,18 +16,18 @@
 		<div class="profile"
 			onclick="profileIconClick_Authorized();">
 			<img th:src="@{/resources/img/account_circle.png}"
-				th:unless="${user.imageURL}"
+				th:unless="${user.profileIcon}"
 				src="/onlinestore/src/main/webapp/resources/img/account_circle.png">
-			<img th:src=${user.imageURL} th:if="${user.imageURL}">
+			<img th:src=${user.profileIcon} th:if="${user.profileIcon}">
 		</div>
 		<div class="menu">
 			<div class="pop-up-profile-img">
 				<img th:src="@{/resources/img/account_circle.png}"
-					th:unless="${user.imageURL}"
+					th:unless="${user.profileIcon}"
 					src="/onlinestore/src/main/webapp/resources/img/account_circle.png">
 				<!-- <img th:src=${user.imageURL} th:if="${user.imageURL}"> -->
 			</div>
-			<h3>Username</h3>
+			<h3 th:text="${user.name}" th:if="${user.name}"></h3>
 			<p>user email or phone number</p>
 			<button type="button" name="account management">account management</button>
 			<ul>

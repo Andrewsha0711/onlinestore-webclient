@@ -1,68 +1,61 @@
-package models;
-
-import classes.TelegramBotMembership;
+package model;
 
 public class User {
-	private Integer id;
+	private String id;
+	private String name;
 	private String email;
-	private String username;
-	private String password;
 	private String phoneNumber;
-	private String imageURL;
-	private TelegramBotMembership telegram;
+	private String password;
+	private String profileIcon;
 	
 	public User() {
 	}
-	
-	public User(int id, String email, String username) {
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
 		this.id = id;
-		this.email = email;
-		this.username = username;
 	}
-	
-	//Get methods
-	public String getUsername() {
-		return this.username;
+
+	public String getName() {
+		return name;
 	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
 	public String getEmail() {
-		return this.email;
+		return email;
 	}
-	public String getPassword() {
-		return this.password;
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
-	public TelegramBotMembership getTelegram() {
-		return this.telegram;
-	}
+
 	public String getPhoneNumber() {
-		return this.phoneNumber;
-	}
-	// Set methods
-	public void setId(int value) {
-		this.id = value;
-	}
-	public void setUsername(String value) {
-		this.username = value;
-	}
-	public void setEmail(String value) {
-		this.email = value;
-	}
-	public void setPassword(String value) {
-		this.password = value;
-	}
-	public void setTelegram(TelegramBotMembership value) {
-		this.telegram = value;
-	}
-	public void setPhoneNumber(String value) {
-		this.phoneNumber = value;
+		return phoneNumber;
 	}
 
-	public String getImageURL() {
-		return imageURL;
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
 	}
 
-	public void setImageURL(String imageURL) {
-		this.imageURL = imageURL;
+	public String getPassword() {
+		return password;
 	}
-	
 
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public String getProfileIcon() {
+		return profileIcon;
+	}
+
+	public void setProfileIcon(String profileIcon) {
+		this.profileIcon = profileIcon;
+	}
 }

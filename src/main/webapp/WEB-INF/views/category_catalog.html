@@ -9,9 +9,11 @@
 	href="/onlinestore/src/main/webapp/resources/css/main.css">
 <link rel="stylesheet" th:href="@{/resources/css/header/header.css}"
 	href="/onlinestore/src/main/webapp/resources/css/header/header.css">
-<link rel="stylesheet" th:href="@{/resources/css/header/autorization_popup.css}"
+<link rel="stylesheet"
+	th:href="@{/resources/css/header/autorization_popup.css}"
 	href="/onlinestore/src/main/webapp/resources/css/header/autorization_popup.css">
-<link rel="stylesheet" th:href="@{/resources/css/header/profile_popup.css}"
+<link rel="stylesheet"
+	th:href="@{/resources/css/header/profile_popup.css}"
 	href="/onlinestore/src/main/webapp/resources/css/header/profile_popup.css">
 </head>
 
@@ -20,25 +22,29 @@
 	<!-- cards container -->
 	<section class="product">
 		<div class="product-container">
-			<div class="product-card" th:each="product : ${products}" 
-				th:data-id= "${product.id}" 
-				onclick="productCardClick(this.getAttribute('data-id'))"
-				>
-      			<div class="product-image">
-        			<img th:src=${product.imagesURL[0]} 
-        				th:unless="${#lists.isEmpty(product.imagesURL)}" 
-        				class="product-thumb" alt="">
-        			<button class="card-btn" type="button" name="button">add to wishlist</button>
-      			</div>
-      			<div class="product-info">
-        			<h2 class="product-brand" th:text=${product.name}></h2>
-        			<p class="product-short-description" th:text=${product.shortDescription}></p>
-        			<span class="price" th:text=${product.price}></span>
-        			<span class="actual-price" th:text=${product.actualPrice}></span>
-      			</div>
-    		</div>
+			<div class="product-card" th:each="productCard : ${productCards}"
+				th:if="${productCard.mainProduct} and ${productCard.mainProduct.images}"
+				th:data-id="${productCard.id}"
+				onclick="productCardClick(this.getAttribute('data-id'))">
+				<div class="product-image">
+					<img th:src=${productCard.mainProduct.images[0].url}
+						th:unless="${#lists.isEmpty(productCard.mainProduct.images)}"
+						class="product-thumb" alt="">
+					<button class="card-btn" type="button" name="button">add
+						to wishlist</button>
+				</div>
+				<div class="product-info">
+					<h2 class="product-brand" th:text=${productCard.name}></h2>
+					<p class="product-short-description"
+						th:text=${productCard.shortDescription}></p>
+					<span class="price" th:text=${productCard.mainProduct.price}
+						th:if=${productCard.mainProduct.price}></span> <span
+						class="actual-price"
+						th:text=${productCard.mainProduct.actualPrice}></span>
+				</div>
+			</div>
 		</div>
 	</section>
-  <script src="resources/js/product_catalog.js"></script>
+	<script src="resources/js/product_catalog.js"></script>
 </body>
 </html>
